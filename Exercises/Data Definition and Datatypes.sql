@@ -2,18 +2,18 @@ CREATE DATABASE minions;
 USE minions;
 
 CREATE TABLE minions(
-	id INT AUTO_INCREMENT,
-	name VARCHAR(80),
+    id INT AUTO_INCREMENT,
+    name VARCHAR(80),
     age INT,
-    
+	
     PRIMARY KEY(id)
 );
 
 CREATE TABLE towns(
-	town_id INT AUTO_INCREMENT,
-	name VARCHAR(80),
-    
-	PRIMARY KEY(town_id)
+    town_id INT AUTO_INCREMENT,
+    name VARCHAR(80),
+	
+    PRIMARY KEY(town_id)
 );
 
 ALTER TABLE towns 
@@ -30,6 +30,7 @@ ADD CONSTRAINT fk_town_id FOREIGN KEY (town_id) REFERENCES towns(id);
 
 SET SQL_SAFE_UPDATES = 0;
 UPDATE towns SET name = 'Sofia' WHERE name = 'SOFIA';
+
 INSERT INTO towns(id, name) VALUE(1, 'Sofia');
 INSERT INTO towns(id, name) VALUE(2, 'Plovdiv');
 INSERT INTO towns(id, name) VALUE(3, 'Varna');
@@ -47,7 +48,7 @@ DROP TABLE minions;
 DROP TABLE towns;
 
 CREATE TABLE people(
-	id INT NOT NULL UNIQUE AUTO_INCREMENT PRIMARY KEY,
+    id INT NOT NULL UNIQUE AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(200) NOT NULL,
     picture BLOB,
     height DOUBLE(6,2),
